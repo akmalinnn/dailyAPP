@@ -1,23 +1,50 @@
 body{
-    background-color: #352f5b;
+    background-color: #4803d3;
 }
 
 .reminder{
-    max-width: 400px;
-    margin-left: 50px;
+    
+    margin-left: 70px;
+    justify-content: space-between;
+    max-width:300px;
+    align-items: center;
 }
 
-input[type=text],
-input[tye=text]:focus{
-    color: #fff;
+.list-item {
+    display: flex;
+    padding: 0.75rem 1.25rem;
+    border: 1px solid rgba(0, 0, 0, 0.125); 
+    border-radius: 0.25rem;
+    width: 300px;
+  }
+
+input[type=text]{
+    display: flex;
     border: none;
-    background-color: rgba(0, 0, 0, .2);
-    max-width: 400px;
+    background-color: rgba(0, 0, 0, 0.2);
+    padding: 0.75rem 1.25rem; 
+    border-radius: 0.25rem;
+    
+   
+}
+input[type=text]:focus{
+    background-color: #ffff;
 }
 
-.todos li{
-    background-color: #423a6f;
+.list-group li{
+    background-color: #534141;
 }
+
+.add{
+    align-items: auto;
+    padding: 1.25rem 0rem;
+}
+.custom-input{ 
+    display: flex;
+    margin: auto;
+    width: 300px;
+    
+}  
 
 .delet{
     cursor: pointer;
