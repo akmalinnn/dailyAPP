@@ -1,0 +1,28 @@
+body{
+    background-color: #352f5b;
+}
+
+.reminder{
+    max-width: 400px;
+    margin-left: 50px;
+}
+
+input[type=text],
+input[tye=text]:focus{
+    color: #fff;
+    border: none;
+    background-color: rgba(0, 0, 0, .2);
+    max-width: 400px;
+}
+
+.todos li{
+    background-color: #423a6f;
+}
+
+.delet{
+    cursor: pointer;
+}
+
+.filtered{
+    display: none !important;
+}
