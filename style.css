@@ -8,19 +8,18 @@ body{
     font-family: 'Raleway', sans-serif;
 }
 
-
 #dashboard {
     position: relative;
     margin: 5% auto;
-    width: 750px;
-    height: 550px;
-    border: 1px solid #d8dbe2;
+    width: 1200px;
+    height: auto;
+    /* border: 1px solid #d8dbe2; */
   }
 
 .profile {
     position: absolute;
-    height: 100%;
-    width: 20%;
+    height: 160%;
+    width: 30%;
     background: #d8dbe2;
     box-shadow: 2px 2px 15px rgba(73, 88, 103, .3);
     text-align: center;
@@ -42,7 +41,6 @@ body{
 
 .profile-detail {
     position: absolute;
-    height: 100%;
     width: 100%;
     background: #d8dbe2;
     box-shadow: 2px 2px 15px rgba(73, 88, 103, .3);
@@ -68,11 +66,10 @@ p:hover {
 
 
 .reminder{
-    
-    margin-left: 370px;
-    justify-content: space-between;
-    max-width:300px;
-    align-items: center;
+    margin-left: 30%;
+    align-items: auto;
+    display: flex;
+    width: 300px;
 }
 
 .list-item {
@@ -101,6 +98,12 @@ input[type=text]:focus{
 }
 
 .add{
+    margin-top: -11%;
+    align-items: auto;
+    padding: 1.25rem 0rem;
+}
+
+.add-input{
     align-items: auto;
     padding: 1.25rem 0rem;
 }
@@ -118,3 +121,4 @@ input[type=text]:focus{
 .filtered{
     display: none !important;
 }
+
