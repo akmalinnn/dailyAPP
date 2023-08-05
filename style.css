@@ -3,87 +3,104 @@
 @import url('https://fonts.googleapis.com/css?family=Raleway:200,400|PT+Mono&display=swap');
 
 body{
-    background-color: #4803d3;
-    margin: 0;
-    font-family: 'Raleway', sans-serif;
+    background-color: #272829;
+    margin-top: auto;
+    font-family: "PT Mono", monospace;
+    display:flex; flex-direction:column; justify-content:center;
+    min-height:100vh;
 }
 
 #dashboard {
     position: relative;
     margin: 5% auto;
     width: 1200px;
-    height: auto;
+    height: 100%;
     /* border: 1px solid #d8dbe2; */
   }
 
 .profile {
     position: absolute;
-    height: 160%;
-    width: 30%;
+    height: 100%;
+    width: 29%;
     background: #d8dbe2;
     box-shadow: 2px 2px 15px rgba(73, 88, 103, .3);
-    text-align: center;
 }
 
 .profile-image {
-    margin-top: 55%;
-    margin-bottom: 25%;
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
-.profile-image p{
+.profile-image p {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     color: #495867;
-    font-size: 0.8em;
-    margin-top: 15px;
+    margin: 10px;
+    padding: 15px;
+    font-size: 2em;
+    font-style: oblique;
+    letter-spacing: 1px;
 }
+
+.profile-image img{
+    margin-top: 10%;
+    border-radius: 5%;
+    object-position: center;
+    width: 150px;
+}
+
 
 .profile-detail {
     position: absolute;
     width: 100%;
+    margin-top: 10px;
     background: #d8dbe2;
     box-shadow: 2px 2px 15px rgba(73, 88, 103, .3);
     text-align: center;
 }
 
-p {
+
+
+.profile-detail p  {
     list-style-type: none;
     color: #495867;
-    margin: 0;
+    margin: 0px;
     padding: 15px;
     text-transform: uppercase;
     font-size: 0.8em;
     letter-spacing: 1px;
     cursor: pointer;
 }
-p:hover {
+
+.profile-detail p:hover {
     background: #fff;
-    color: #577399;
     transition: all 0.3s ease;
 }
 
 
-
 .reminder{
-    margin-left: 30%;
+    grid-area: one;
+    grid-column: 1 ;
+    font-family: "PT Mono", monospace;
     align-items: auto;
     display: flex;
-    width: 300px;
+    background: #FFF6E05a;
 }
 
 .list-item {
     display: flex;
     padding: 0.75rem 1.25rem;
-    border: 1px solid rgba(0, 0, 0, 0.125); 
+    color: #272829;
     border-radius: 0.25rem;
     width: 300px;
-  }
+}
 
 input[type=text]{
     display: flex;
     border: none;
-    background-color: rgba(0, 0, 0, 0.2);
+    background-color: #FFF6E0;
     padding: 0.75rem 1.25rem; 
     border-radius: 0.25rem;
     
@@ -95,10 +112,11 @@ input[type=text]:focus{
 
 .list-group li{
     background-color: #d8dbe2;
+    margin-top: 2%;
 }
 
 .add{
-    margin-top: -11%;
+    margin-top: auto;
     align-items: auto;
     padding: 1.25rem 0rem;
 }
@@ -111,14 +129,54 @@ input[type=text]:focus{
     display: flex;
     margin: auto;
     width: 300px;
-    
 }  
+
+.clock {
+    grid-area: four;
+    grid-column: 2;
+    background: #61677A;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    
+}
+
+.time {
+    font-size: 4em;
+    color: #61677A;
+    background: #FFF6E0;
+    padding: 7px; 
+}
+
+.greeting   {
+    margin-top: auto;
+    font-size: 1em;
+    color: #61677A;
+    background: #FFF6E0;
+    padding: 7px; 
+}
+
+#date  {
+    font-family: "Raleway", sans-serif;
+    margin-top: auto;
+    font-size: 3em;
+    color: #FFF6E0;
+    padding: 7px;
+}
+
+.main-grid {
+    width: 70%;
+    margin-left: 30%;
+    height: 90%;
+    display: grid;
+    grid-gap: 10px;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-areas: "one four" "one five" "two five" ;
+  }
 
 .delet{
     cursor: pointer;
 }
 
-.filtered{
-    display: none !important;
-}
 
