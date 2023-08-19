@@ -19,11 +19,18 @@ body{
   }
 
 .profile {
-    position: absolute;
-    height: 100%;
-    width: 29%;
+    grid-area: one;
+    grid-column: 1;
+    /* position: absolute; */
+    /* height: 100%;
+    width: 29%; */
     background: #d8dbe2;
     box-shadow: 2px 2px 15px rgba(73, 88, 103, .3);
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    
 }
 
 .profile-image {
@@ -53,7 +60,7 @@ body{
 
 
 .profile-detail {
-    position: absolute;
+    /* position: absolute; */
     width: 100%;
     margin-top: 10px;
     background: #d8dbe2;
@@ -64,7 +71,7 @@ body{
 
 
 .profile-detail p  {
-    list-style-type: none;
+    list-style-type: two;
     color: #495867;
     margin: 0px;
     padding: 15px;
@@ -79,14 +86,30 @@ body{
     transition: all 0.3s ease;
 }
 
+.main-grid {
+    /* width: 70%;
+    margin-left: 30%; */
+    height: 90%;
+    display: grid;
+    grid-gap: 10px;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-areas:    "one two three" 
+                            "one two four"
+                            "one two four"  ;
+  }
 
 .reminder{
-    grid-area: one;
-    grid-column: 1 ;
+    grid-area: two;
+    grid-column: 2 ;
     font-family: "PT Mono", monospace;
-    align-items: auto;
+    align-items: center;
     display: flex;
+    text-align: center;
     background: #FFF6E05a;
+    flex-direction: column;
+
+    
+    
 }
 
 .list-item {
@@ -97,9 +120,17 @@ body{
     width: 300px;
 }
 
+.list-group {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    margin: auto;
+}
+
+
 input[type=text]{
     display: flex;
-    border: none;
+    border: two;
     background-color: #FFF6E0;
     padding: 0.75rem 1.25rem; 
     border-radius: 0.25rem;
@@ -113,9 +144,10 @@ input[type=text]:focus{
 .list-group li{
     background-color: #d8dbe2;
     margin-top: 2%;
+    
 }
 
-.add{
+.search{
     margin-top: auto;
     align-items: auto;
     padding: 1.25rem 0rem;
@@ -132,8 +164,8 @@ input[type=text]:focus{
 }  
 
 .clock {
-    grid-area: four;
-    grid-column: 2;
+    grid-area: three;
+    grid-column: 3;
     background: #61677A;
     display: flex;
     flex-direction: column;
@@ -165,18 +197,21 @@ input[type=text]:focus{
     padding: 7px;
 }
 
-.main-grid {
-    width: 70%;
-    margin-left: 30%;
-    height: 90%;
-    display: grid;
-    grid-gap: 10px;
-    grid-template-columns: repeat(2, 1fr);
-    grid-template-areas: "one four" "one five" "two five" ;
-  }
-
-.delet{
-    cursor: pointer;
+.weather {
+    grid-area: four;
+    grid-column: 3;
+    background: #61677A;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    
 }
 
+.delet{
+    display: flex;
+    cursor: pointer;
+    margin-left: auto;
+   
+}
 
