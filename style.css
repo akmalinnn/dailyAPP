@@ -118,19 +118,19 @@ body{
     color: #272829;
     border-radius: 0.25rem;
     width: 300px;
+    justify-content: top;
+    
 }
 
 .list-group {
     list-style-type: none;
     margin: 0;
     padding: 0;
-    margin: auto;
 }
 
 
 input[type=text]{
     display: flex;
-    border: two;
     background-color: #FFF6E0;
     padding: 0.75rem 1.25rem; 
     border-radius: 0.25rem;
@@ -148,8 +148,6 @@ input[type=text]:focus{
 }
 
 .search{
-    margin-top: auto;
-    align-items: auto;
     padding: 1.25rem 0rem;
 }
 
@@ -157,10 +155,11 @@ input[type=text]:focus{
     align-items: auto;
     padding: 1.25rem 0rem;
 }
-.custom-input{ 
+.custom-input{  
     display: flex;
-    margin: auto;
     width: 300px;
+    
+
 }  
 
 .clock {
@@ -213,5 +212,9 @@ input[type=text]:focus{
     cursor: pointer;
     margin-left: auto;
    
+}
+
+.hidden {
+    display: none;
 }
 
