@@ -10,7 +10,7 @@ const generateTemplate = todo => {
         <span>${todo}</span>
         <i class="far fa-trash-alt delet"></i>
     `;
-    list.insertBefore(listItem, list.firstChild); // Insert at the beginning
+    list.insertBefore(listItem, list.firstChild); 
 };
 
 addForm.addEventListener('submit', e => {
@@ -42,7 +42,7 @@ list.addEventListener('click', e => {
 });
 
 const updateNoItemsMessage = () => {
-    const listItems = list.querySelectorAll('.list-item');
+const listItems = list.querySelectorAll('.list-item');
     
     if (listItems.length === 0) {
         noItemsMessage.style.display = 'block';
@@ -59,15 +59,15 @@ const filterTodos = term => {
     listItems.forEach(item => {
         const todoText = item.querySelector('span').textContent.toLowerCase();
         if (todoText.includes(term)) {
-            item.classList.remove('hidden'); // Remove 'hidden' class
+            item.classList.remove('hidden'); 
         } else {
-            item.classList.add('hidden'); // Add 'hidden' class
+            item.classList.add('hidden'); 
         }
 
         
     });
 
-     // Update the message after filtering
+     
 };
 
 search.addEventListener('keyup', e => {
@@ -80,6 +80,59 @@ search.addEventListener('keyup', e => {
         });
     }
 });
+
+function updateClock() {
+    let today = new Date();
+    let time = today.toLocaleString('en-US', { hour: 'numeric', minute: 'numeric', second: 'numeric', hour12: false });
+    let hours = today.getHours();
+    let month = today.getMonth();
+    let day = today.getUTCDate();
+    let year = today.getFullYear();
+    let months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+  
+    document.getElementById('time').innerHTML = time;
+    document.getElementById('date').innerHTML = months[month] + " " + day + ", " + year;
+    document.getElementById('greeting').innerHTML = displayGreeting(hours);
+  
+    requestAnimationFrame(updateClock); // Call updateClock again before the next frame
+  }
+
+function displayGreeting(hours) {
+  if (hours < 11) {
+    return 'Good morning';
+  } else if (hours > 17) {
+    return 'Good evening';
+  } else {
+    return 'Good afternoon';
+  }
+}
+updateClock();
+
+const body = document.body;
+const currentTime = new Date().getHours();
+
+function init_auto() {
+    if ((currentTime > 23) || (currentTime < 4)) {
+        midnight();
+    } else if (currentTime < 6) {
+        dawn();
+    } else if (currentTime < 9) {
+        morning();
+    } else if (currentTime < 15) {
+        noon();
+    } else if (currentTime < 17) {
+        afternoon();
+    } else if (currentTime < 19) {
+        sunset();
+    } else if (currentTime < 23) {
+        evening();
+    } else {
+        midnight();
+    }
+}
+
+init_auto();
+
 
 
 
