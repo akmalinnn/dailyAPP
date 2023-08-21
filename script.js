@@ -28,6 +28,16 @@ list.addEventListener('click', e => {
     if (e.target.classList.contains('delet')) {
         e.target.parentElement.remove();
         updateNoItemsMessage(); // Call the function after removing an item
+    } else if (e.target.tagName === 'SPAN') {
+        e.target.classList.toggle('completed');
+
+        const completedItems = list.querySelectorAll('.completed');
+        const notCompletedItems = list.querySelectorAll(':not(.completed)');
+            
+        completedItems.forEach(item => list.appendChild(item.parentNode));
+        notCompletedItems.forEach(item => list.appendChild(item.parentNode));
+        
+
     }
 });
 
@@ -53,9 +63,11 @@ const filterTodos = term => {
         } else {
             item.classList.add('hidden'); // Add 'hidden' class
         }
+
+        
     });
 
-    updateNoItemsMessage(); // Update the message after filtering
+     // Update the message after filtering
 };
 
 search.addEventListener('keyup', e => {

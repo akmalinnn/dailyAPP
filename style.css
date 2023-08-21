@@ -7,7 +7,6 @@ body{
     margin-top: auto;
     font-family: "PT Mono", monospace;
     display:flex; flex-direction:column; justify-content:center;
-    min-height:100vh;
 }
 
 #dashboard {
@@ -91,6 +90,7 @@ body{
     margin-left: 30%; */
     height: 90%;
     display: grid;
+    height: 600px;
     grid-gap: 10px;
     grid-template-columns: repeat(2, 1fr);
     grid-template-areas:    "one two three" 
@@ -107,10 +107,12 @@ body{
     text-align: center;
     background: #FFF6E05a;
     flex-direction: column;
-
-    
+    overflow-y: auto; /* Allow vertical scrolling when content exceeds height */
+    height: 100%;
     
 }
+
+
 
 .list-item {
     display: flex;
@@ -126,6 +128,8 @@ body{
     list-style-type: none;
     margin: 0;
     padding: 0;
+    overflow-y: auto; /* Allow vertical scrolling when content exceeds height */
+    max-height: 60vh; /* Set maximum height for the list */
 }
 
 
@@ -218,3 +222,6 @@ input[type=text]:focus{
     display: none;
 }
 
+.completed {
+    text-decoration: line-through;
+}
