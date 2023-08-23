@@ -11,7 +11,6 @@ const generateTemplate = todo => {
         <i class="far fa-trash-alt delet"></i>
     `;
     list.insertBefore(listItem, list.firstChild); 
-    showTask();
 };
 
 addForm.addEventListener("submit", e => {
