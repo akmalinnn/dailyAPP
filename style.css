@@ -3,7 +3,7 @@
 @import url('https://fonts.googleapis.com/css?family=Raleway:200,400|PT+Mono&display=swap');
 
 body{
-    background: linear-gradient(0deg, rgb(0, 0, 0) 0%, rgba(82,167,255,1) 100%);
+    background: rgb(51, 49, 49);
     margin-top: auto;
     font-family: "PT Mono", monospace;
     display:flex; flex-direction:column; justify-content:center;
@@ -45,20 +45,12 @@ body{
 .profile {
     grid-area: one;
     grid-column: 1;
-    /* position: absolute; */
-    /* height: 100%;
-    width: 29%; */
     background: rgba(255, 255, 255, 0.2);
     border-radius: 16px;
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
     backdrop-filter: blur(5px);
     -webkit-backdrop-filter: blur(5px);
     border: 1px solid rgba(255, 255, 255, 0.3);
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-
-    
 }
 
 .profile-image {
@@ -116,7 +108,6 @@ body{
 
 .main-grid {
     margin: 0 auto;
-    height: 90%;
     display: grid;
     height: 600px;
     grid-gap: 10px;
@@ -140,7 +131,7 @@ body{
     -webkit-backdrop-filter: blur(5px);
     border: 1px solid rgba(255, 255, 255, 0.3);
     flex-direction: column;
-    overflow-y: auto; /* Allow vertical scrolling when content exceeds height */
+    overflow-y: auto; 
     height: 100%;
     
 }
@@ -149,12 +140,19 @@ body{
     display: flex;
     margin-top: 5%;
     font-size: 1.6em;
-    color: rgba(255, 255, 255, 1);
-    
+    color: rgba(255, 255, 255, 1);   
+}
+
+.no-items-message {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
 .list-item {
     display: flex;
+    text-align: left;
     padding: 0.75rem 1.25rem;
     color: rgba(0, 0, 0, 0.5);
     border-radius: 0.25rem;
@@ -163,13 +161,13 @@ body{
     cursor: pointer;
 }
 
-.list-group :hover {
+.list-group li:hover {
     background:rgba(255, 255, 255, 1);
     transition: all 0.5s ease;
 }
 
 .list-item:hover .delet {
-    color: rgba(0, 0, 0, 0.5); /* Change to the desired color on hover */
+    color: rgba(0, 0, 0, 0.5); 
 }
 
 .list-group {
@@ -184,7 +182,6 @@ body{
     display: none;
   }
   
-  /* Hide scrollbar for IE, Edge and Firefox */
 .list-group {
     -ms-overflow-style: none;  /* IE and Edge */
     scrollbar-width: none;  /* Firefox */
@@ -214,14 +211,10 @@ input[type=text]:focus{
 }
 
 .add-input{
-    align-items: auto;
     padding: 1.25rem 0rem;
 }
 .custom-input{  
-    display: flex;
     width: 300px;
-    
-
 }  
 
 .clock {
@@ -278,8 +271,8 @@ input[type=text]:focus{
 }
 
 .clock:hover {
-    background-color: rgba(0, 0, 0, 0.479); /* Change background color on hover */
-    transition: background-color 0.5s ease; /* Add transition effect to background color change */
+    background-color: rgba(0, 0, 0, 0.479); 
+    transition: background-color 0.5s ease; 
 }
 
 

@@ -28,7 +28,7 @@ list.addEventListener('click', e => {
     if (e.target.classList.contains('delet')) {
         e.target.parentElement.remove();
         updateNoItemsMessage(); // Call the function after removing an item
-    } else if (e.target.tagName === 'SPAN') {
+    } else if (e.target.tagName ==='SPAN') {
         e.target.classList.toggle('completed');
 
         const completedItems = list.querySelectorAll('.completed');
@@ -63,7 +63,6 @@ const filterTodos = term => {
         } else {
             item.classList.add('hidden'); 
         }
-
         
     });
 
@@ -85,17 +84,18 @@ function updateClock() {
     let today = new Date();
     let time = today.toLocaleString('en-US', { hour: 'numeric', minute: 'numeric', second: 'numeric', hour12: false });
     let hours = today.getHours();
+    let dayOfWeek = today.toLocaleString('en-US', { weekday: 'long' });
+    let day = today.getDate();
     let month = today.getMonth();
-    let day = today.getUTCDate();
     let year = today.getFullYear();
     let months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
-  
+
     document.getElementById('time').innerHTML = time;
-    document.getElementById('date').innerHTML = months[month] + " " + day + ", " + year;
+    document.getElementById('date').innerHTML = dayOfWeek + ", <br>" + day + " " + months[month] + " " + year;
     document.getElementById('greeting').innerHTML = displayGreeting(hours);
-  
+
     requestAnimationFrame(updateClock); // Call updateClock again before the next frame
-  }
+}
 
 function displayGreeting(hours) {
   if (hours < 11) {
@@ -106,36 +106,36 @@ function displayGreeting(hours) {
     return 'Good afternoon';
   }
 }
-updateClock();
 
 const body = document.body;
 const currentTime = new Date().getHours();
 
-function init_auto() {
-    if ((currentTime > 23) || (currentTime < 4)) {
-        midnight();
-    } else if (currentTime < 6) {
-        dawn();
-    } else if (currentTime < 9) {
-        morning();
-    } else if (currentTime < 15) {
-        noon();
-    } else if (currentTime < 17) {
-        afternoon();
-    } else if (currentTime < 19) {
-        sunset();
-    } else if (currentTime < 23) {
-        evening();
-    } else {
-        midnight();
+function init_auto(){
+    if ((currentTime > 23) || (currentTime < 4)){
+        body.classList.add('midnight');
+    }
+    else if(currentTime < 6){
+        body.classList.add('dawn');
+    }
+    else if(currentTime < 9){
+        body.classList.add('morning');
+    }
+    else if(currentTime < 17){
+        body.classList.add('noon');
+    }
+    else if(currentTime < 18){
+        body.classList.add('afternoon');
+    }
+    else if(currentTime < 19){
+        body.classList.add('sunset');
+    }
+    else if(currentTime < 23){
+        body.classList.add('evening');
+    }
+    else{
+        body.classList.add('midnight');
     }
 }
 
 init_auto();
-
-
-
-
-
-
-
+updateClock();
