@@ -11,6 +11,7 @@ const generateTemplate = todo => {
         <i class="far fa-trash-alt delet"></i>
     `;
     list.insertBefore(listItem, list.firstChild); 
+    showTask();
 };
 
 addForm.addEventListener("submit", e => {
@@ -143,10 +144,10 @@ function saveData(){
     localStorage.setItem("data", list.innerHTML);
 }
 
-function showTask(){
+function showTask() {
     const storedData = localStorage.getItem("data");
-    list.innerHTML = localStorage.getItem("data");
-    if (storedData === null || storedData === "") {
+    if (storedData) {
+        list.innerHTML = storedData; 
         updateNoItemsMessage();
     }
 }

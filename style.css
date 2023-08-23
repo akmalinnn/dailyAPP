@@ -429,8 +429,6 @@ input[type=text]:focus{
     animation-duration: 20s;
 }
 
-
-
 @keyframes animate {
 
     0%{

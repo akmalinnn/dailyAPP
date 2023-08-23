@@ -1,0 +1,719 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script src="https://kit.fontawesome.com/f62b69d1ed.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title> pweb Pos</title>
+    <style>
+        
+
+@import url('https://fonts.googleapis.com/css?family=Raleway:200,400|PT+Mono&display=swap');
+
+body{
+    background: rgb(51, 49, 49);
+    margin-top: auto;
+    font-family: "PT Mono", monospace;
+    display:flex; flex-direction:column; justify-content:center;
+}
+
+.dawn{
+    background: linear-gradient(0deg, rgba(133,26,0,1) 3%, rgba(255,51,0,1) 19%, rgba(181,103,47,1) 45%, rgba(52,142,200,1) 100%);
+}
+.morning{
+    background: linear-gradient(0deg, rgba(255,230,113,1) 0%, rgba(82,167,255,1) 100%);
+}
+.noon{
+    background: linear-gradient(0deg, rgba(22,183,255,1) 0%, rgba(14,116,223,1) 58%, rgba(1,7,170,1) 100%);
+}
+.afternoon{
+    background: linear-gradient(0deg, rgba(161,133,255,1) 0%, rgba(0,118,226,1) 61%, rgba(1,81,170,1) 100%);
+}
+.sunset{
+    background: linear-gradient(0deg, rgba(195,75,42,1) 0%, rgba(129,29,121,1) 8%, rgba(89,1,170,1) 29%, rgba(1,5,79,1) 90%);
+}
+.evening{
+    background: linear-gradient(0deg, rgba(0,7,128,1) 0%, rgba(0,3,54,1) 100%);
+}
+.midnight{
+    background: linear-gradient(0deg, rgba(0,3,60,1) 0%, rgba(0,0,0,1) 100%);
+}
+
+#dashboard {
+    position: relative;
+    margin: 0 auto;
+    width: 1200px;
+    height: 99vh;
+    /* border: 1px solid #d8dbe2; */
+    justify-content: center;
+    align-items: center;
+    display: flex;
+}
+
+  .main-grid {  
+    margin: 0 auto;
+    display: grid;
+    height: 600px;
+    grid-gap: 10px;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-areas:    "one two three" 
+                            "one two four"
+                            "one two four"  ;
+}
+
+.profile {
+    grid-area: one;
+    grid-column: 1;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.profile-image {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.profile-image p {
+    display: flex;
+    font-family: "Raleway-bold", sans-serif;
+    color: rgba(255, 255, 255, 1);
+    font-size: 2em;
+}
+
+.profile-image img{
+    margin-top: 10%;
+    border-radius: 5%;
+    object-position: center;
+    width: 150px;
+}
+
+
+.profile-detail {
+    /* position: absolute; */
+    width: 100%;
+    margin-top: 10px;
+    background: rgba(255, 255, 255, 0.4);
+    box-shadow: 2px 2px 15px rgba(73, 88, 103, 0.3);
+    text-align: center;
+}
+
+
+
+.profile-detail p  {
+    list-style-type: two;
+    color: #495867;
+    margin: 0px;
+    padding: 15px;
+    text-transform: uppercase;
+    font-size: 0.8em;
+    letter-spacing: 1px;
+    cursor: pointer;
+}
+
+.profile-detail p:hover {
+    background:rgba(255, 255, 255, 1);
+    transition: all 0.3s ease;
+}
+
+
+.reminder{
+    grid-area: two;
+    grid-column: 2 ;
+    font-family: "PT Mono", monospace;
+    align-items: center;
+    display: flex;
+    text-align: center;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    flex-direction: column;
+    overflow-y: auto; 
+    height: 100%;
+    
+}
+
+.header{
+    font-family: "Raleway", sans-serif;
+    display: flex;
+    margin-top: 5%;
+    font-size: 2em;
+    color: rgba(255, 255, 255, 1);   
+}
+
+.no-items-message {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.list-item {
+    display: flex;
+    text-align: left;
+    padding: 0.75rem 1.25rem;
+    color: rgba(0, 0, 0, 0.5);
+    border-radius: 0.25rem;
+    width: 300px;
+    justify-content: top;
+    cursor: pointer;
+}
+
+.list-group li:hover {
+    background:rgba(255, 255, 255, 1);
+    transition: all 0.5s ease;
+}
+
+.list-item:hover .delet {
+    color: rgba(0, 0, 0, 0.5); 
+}
+
+.list-group {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow-y: auto; /* Allow vertical scrolling when content exceeds height */
+    max-height: 60vh; /* Set maximum height for the list */
+}
+
+.list-group::-webkit-scrollbar {
+    display: none;
+  }
+  
+.list-group {
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+  }
+
+
+input[type=text]{
+    display: flex;
+    background-color: rgba(255, 255, 255, 0.0);
+    padding: 0.75rem 1.25rem; 
+    border-radius: 0.25rem;
+    
+   
+}
+input[type=text]:focus{
+    background-color: rgba(255, 255, 255, 0.5);
+}
+
+.list-group li{
+    background-color: rgba(255, 255, 255, 0.3);
+    margin-top: 2%;
+    
+}
+
+.search{
+    padding: 1.25rem 0rem;
+}
+
+.add-input{
+    padding: 1.25rem 0rem;
+}
+.custom-input{  
+    width: 300px;
+}  
+
+.clock {
+    grid-area: three;
+    grid-column: 3;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    
+}
+
+.time {
+    font-size: 4em;
+    color: rgba(255, 255, 255, 1);
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(15.1px);
+    -webkit-backdrop-filter: blur(15.1px);
+    padding: 7px; 
+}
+
+.greeting   {
+    margin-top: auto;
+    font-size: 1.4em;
+    color: rgba(255, 255, 255, 1);
+    padding: 7px; 
+}
+
+#date  {
+    font-family: "Raleway", sans-serif;
+    margin-top: auto;
+    font-size: 3em;
+    color: rgba(255, 255, 255, 1);
+    padding: 7px;
+}
+
+.weather {
+    grid-area: four;
+    grid-column: 3;
+    background: rgba(255, 255, 255, 0.6);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    display: flex;
+    
+}
+
+.clock:hover {
+    background-color: rgba(0, 0, 0, 0.479); 
+    transition: background-color 0.5s ease; 
+}
+
+
+.weather :hover {
+    color: black;
+    display: flex;
+    border-radius: 16px;
+    transition: all 0.5s ease;
+}
+
+.delet{
+    display: flex;
+    cursor: pointer;
+    margin-left: auto;
+    color: rgba(255, 255, 255, 1);
+}
+
+.hidden {
+    display: none;
+}
+
+.completed {
+    text-decoration: line-through;
+}
+
+/* njir animasi */
+
+
+.circles {
+    position: absolute;
+    padding-left: 0px;
+    margin: 0px 0px 0px 0px;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+    z-index: -1; /* Move the circles element behind other content */
+}
+
+
+.circles li{
+    position: absolute;
+    display: block;
+    list-style: none;
+    width: 20px;
+    height: 20px;
+    background: rgba(255, 255, 255, 0.2);
+    animation: animate 25s linear infinite;
+    bottom: -260px;
+    
+}
+
+.circles li:nth-child(1){
+    left: 25%;
+    width: 80px;
+    height: 80px;
+    animation-delay: 0s;
+}
+
+
+.circles li:nth-child(2){
+    left: 10%;
+    width: 20px;
+    height: 20px;
+    animation-delay: 2s;
+    animation-duration: 12s;
+}
+
+.circles li:nth-child(3){
+    left: 70%;
+    width: 20px;
+    height: 20px;
+    animation-delay: 4s;
+}
+
+.circles li:nth-child(4){
+    left: 40%;
+    width: 60px;
+    height: 60px;
+    animation-delay: 0s;
+    animation-duration: 18s;
+}
+
+.circles li:nth-child(5){
+    left: 65%;
+    width: 20px;
+    height: 20px;
+    animation-delay: 0s;
+}
+
+.circles li:nth-child(6){
+    left: 75%;
+    width: 110px;
+    height: 110px;
+    animation-delay: 5s;
+}
+
+.circles li:nth-child(7){
+    left: 35%;
+    width: 150px;
+    height: 150px;
+    animation-delay: 7s;
+}
+
+.circles li:nth-child(8){
+    left: 50%;
+    width: 25px;
+    height: 25px;
+    animation-delay: 15s;
+    animation-duration: 45s;
+}
+
+.circles li:nth-child(9){
+    left: 20%;
+    width: 15px;
+    height: 15px;
+    animation-delay: 2s;
+    animation-duration: 35s;
+}
+
+.circles li:nth-child(10){
+    left: 85%;
+    width: 150px;
+    height: 150px;
+    animation-delay: 18s;
+    animation-duration: 11s;
+}
+
+.circles li:nth-child(11){
+    left: 3%;
+    width: 90px;
+    height: 90px;
+    animation-delay: 20s;
+    animation-duration: 11s;
+}
+
+.circles li:nth-child(12){
+    left: 3%;
+    width: 160px;
+    height: 160px;
+    animation-delay: 25s;
+    animation-duration: 20s;
+}
+.circles li:nth-child(12){
+    left: 3%;
+    width: 160px;
+    height: 160px;
+    animation-delay: 30s;
+    animation-duration: 20s;
+}
+
+.circles li:nth-child(13){
+    left: 57%;
+    width: 260px;
+    height: 260px;
+    animation-delay: 60s;
+    animation-duration: 20s;
+}
+
+@keyframes animate {
+
+    0%{
+        transform: translateY(0) rotate(0deg);
+        opacity: 1;
+        border-radius: 0;
+    }
+
+    100%{
+        transform: translateY(-1000px) rotate(720deg);
+        opacity: 0;
+        border-radius: 30%;
+    }
+}
+
+    </style>
+</head>
+
+<body>
+
+    <div id="dashboard">
+        <div class="main-grid">
+            <div class="profile">
+                <div class="profile-image">      
+                        <img id="profile-white" src="https://static-wikia-nocookie-net.translate.goog/fategrandorder/images/5/53/S059_Stage4.webp/revision/latest?cb=20220910122531&_x_tr_sl=en&_x_tr_tl=id&_x_tr_hl=id&_x_tr_pto=tc">
+                    <p>Janu</p>
+                </div>
+                
+                <div class="profile-detail">
+                    <p> Joan of Arc (French: Jeanne d'Arc pronounced [ʒan daʁk]; c. 1412 – 30 May 1431) is a patron saint of France, honored as a defender of the French nation for her role in the siege of Orléans and her insistence on the coronation of Charles VII of France during the Hundred Years' War. Claiming to be acting under divine guidance.
+                         </p>
+                </div>
+            </div>
+
+            <div class="reminder">
+                <header class="header">
+                    <p class="todolist">Focus on your day</p>
+                </header>
+                <form class="search">
+                    <input type="text" class="custom-input" name="search" placeholder="search todos" autocomplete="off"/>
+                </form>
+            <ul class="list-group" name="todos">
+                
+                    <li class="list-item">
+                        <span>FGO </span>
+                        <i class="far fa-trash-alt delet"></i>
+                    </li>
+                    <li class="list-item">
+                        <span> Tugas P web pos </span>
+                        <i class="far fa-trash-alt delet"></i>
+                    </li>
+                    <li class="list-item">
+                        <span>Jemput Janu</span>
+                        <i class="far fa-trash-alt delet"></i>
+                    </li>
+                    <li class="list-item">
+                        <span>Bersetubuh</span>
+                        <i class="far fa-trash-alt delet"></i>
+                    </li>
+                    <li class="list-item">
+                        <span class="completed">Frederica Shiki Chitose Arisa Mizuki Miyu Hina Minami Fumika Makino Kanade Ryo Syuko Aki Kako Natsuki Yuki Sanae Yumi Airi Takumi Eve Riamu Sato 
+
+                            wow dikit banget yah </span>
+                        <i class="far fa-trash-alt delet"></i>
+                    </li>   
+                    <li class="list-item">
+                        <span class="completed"> kenapa coek </span>
+                        <i class="far fa-trash-alt delet"></i>
+                    </li>   
+                    <li class="list-item">
+                        <span class="completed"> Wkakwkawkkaka </span>
+                        <i class="far fa-trash-alt delet" ></i>
+                    </li>   
+            </ul>   
+
+            <div class="no-items-message" style="display: none ;"  >
+                <img src="https://cdn.discordapp.com/attachments/774915821956104192/1143694048922718318/Cat.scale-200.png" alt="cat">
+            </div>
+
+            <form class="add-input">
+                <input class="custom-input" name="add" placeholder="add" type="text" autocomplete="off">
+            </form>
+            </div>
+
+            <div class="clock">
+                <h1 id="time" class="time"> 00:00 AM </h1>
+                <h1 id="date"> 17 August 2023 </h1>
+                <h1 id="greeting" class="greeting"> "Pagi pos" </h1>
+                
+            </div>
+            <div  class="weather"  id="ww_240c75d729f0a" v='1.3' loc='auto' a='{"t":"horizontal","lang":"en","sl_lpl":1,"ids":[],"font":"Arial","sl_ics":"one_a","sl_sot":"celsius","cl_bkg":"#ffffff33","cl_font":"#ffff","cl_cloud":"#d4d4d4","cl_persp":"#2196F3","cl_sun":"#FFC107","cl_moon":"#FFC107","cl_thund":"#FF5722"}'>Weather Data Source: <a href="https://wetterlang.de/wetter_14_tage/" id="ww_240c75d729f0a_u" target="_blank">Wettervorhersage 14 tage</a></div><script async src="https://app2.weatherwidget.org/js/?id=ww_240c75d729f0a"></script>
+        </div>
+
+    
+    </div>
+    <div class="area" >
+        <ul class="circles">
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+     </ul>
+    </div >
+
+    <script>
+const addForm = document.querySelector(".add-input");
+const list = document.querySelector(".list-group");
+const search = document.querySelector(".custom-input");
+const noItemsMessage = document.querySelector(".no-items-message");
+
+const generateTemplate = todo => {
+    const listItem = document.createElement("li");
+    listItem.className = "list-item";
+    listItem.innerHTML = `
+        <span>${todo}</span>
+        <i class="far fa-trash-alt delet"></i>
+    `;
+    list.insertBefore(listItem, list.firstChild); 
+};
+
+addForm.addEventListener("submit", e => {
+    e.preventDefault();
+    const todo = addForm.add.value.trim();
+
+    if (todo.length) {
+        generateTemplate(todo);
+        addForm.reset();
+        saveData();
+    }
+});
+
+
+list.addEventListener("click", e => {
+    if (e.target.classList.contains("delet")) {
+        e.target.parentElement.remove();
+        updateNoItemsMessage(); // Call the function after removing an item
+    } else if (e.target.tagName ==="SPAN") {
+        e.target.classList.toggle("completed");
+
+        const completedItems = list.querySelectorAll(".completed");
+        const notCompletedItems = list.querySelectorAll(":not(.completed)");
+            
+        completedItems.forEach(item => list.appendChild(item.parentNode));
+        notCompletedItems.forEach(item => list.appendChild(item.parentNode));
+    }
+    saveData();
+});
+
+const updateNoItemsMessage = () => {
+const listItems = list.querySelectorAll(".list-item");
+    if (listItems.length === 0) {
+        noItemsMessage.style.display = "block";
+        search.style.display = "none";
+    } else {
+        noItemsMessage.style.display = "none";
+        search.style.display = "block";
+    }
+};
+
+const filterTodos = term => {
+    const listItems = Array.from(list.children);
+    
+    listItems.forEach(item => {
+        const todoText = item.querySelector("span").textContent.toLowerCase();
+        if (todoText.includes(term)) {
+            item.classList.remove("hidden"); 
+        } else {
+            item.classList.add("hidden"); 
+        }
+    });
+
+     
+};
+
+search.addEventListener("keyup", e => {
+    const term = search.value.trim().toLowerCase();
+    filterTodos(term);
+
+    if (term === "") {
+        Array.from(list.children).forEach(item => {
+            item.classList.remove("hidden");
+        });
+    }
+});
+
+function updateClock() {
+    let today = new Date();
+    let time = today.toLocaleString("en-US", { hour: "numeric", minute: "numeric", second: "numeric", hour12: false });
+    let hours = today.getHours();
+    let dayOfWeek = today.toLocaleString("en-US", { weekday: "long" });
+    let day = today.getDate();
+    let month = today.getMonth();
+    let year = today.getFullYear();
+    let months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+
+    document.getElementById("time").innerHTML = time;
+    document.getElementById("date").innerHTML = dayOfWeek + ", <br>" + day + " " + months[month] + " " + year;
+    document.getElementById("greeting").innerHTML = displayGreeting(hours);
+
+    requestAnimationFrame(updateClock); 
+}
+
+function displayGreeting(hours) {
+  if (hours < 11) {
+    return "Good morning";
+  } else if (hours > 17) {
+    return "Good evening";
+  } else {
+    return "Good afternoon";
+  }
+}
+
+const body = document.body;
+const currentTime = new Date().getHours();
+
+function init_auto(){
+    if ((currentTime > 23) || (currentTime < 4)){
+        body.classList.add("midnight");
+    }
+    else if(currentTime < 6){
+        body.classList.add("dawn");
+    }
+    else if(currentTime < 9){
+        body.classList.add("morning");
+    }
+    else if(currentTime < 17){
+        body.classList.add("noon");
+    }
+    else if(currentTime < 18){
+        body.classList.add("afternoon");
+    }
+    else if(currentTime < 19){
+        body.classList.add("sunset");
+    }
+    else if(currentTime < 23){
+        body.classList.add("evening");
+    }
+    else{
+        body.classList.add("midnight");
+    }
+}
+init_auto();
+updateClock();
+
+function saveData(){
+    localStorage.setItem("data", list.innerHTML);
+}
+
+function showTask() {
+    const storedData = localStorage.getItem("data");
+    if (storedData) {
+        list.innerHTML = storedData; 
+        updateNoItemsMessage();
+    }
+}
+showTask();
+
+let alerted = localStorage.getItem('alerted') || '';
+if (alerted != 'yes') {
+alert("Better in fullscreen");
+localStorage.setItem('alerted','yes');
+}
+
+    </script>
+
+</body>
+</html>
