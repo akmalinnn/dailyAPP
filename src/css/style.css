@@ -160,7 +160,7 @@ body{
 
 .list-group li:hover {
     background:rgba(255, 255, 255, 1);
-    transition: all 0.5s ease;
+    transition: all 0.3s ease;
 }
 
 .list-item:hover .delet {
